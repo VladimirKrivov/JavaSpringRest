@@ -3,6 +3,7 @@ package com.example.java.spring.rest.entitys.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -28,4 +29,7 @@ public class Order {
     private String person;
     @Column(name = "order_other")
     private String other;
+
+    @OneToMany(mappedBy = "orders")
+    List<ProductCart> productCarts;
 }

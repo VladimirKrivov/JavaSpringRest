@@ -3,6 +3,7 @@ package com.example.java.spring.rest.entitys.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -20,4 +21,7 @@ public class Product {
     private Double price;
     @Column(name = "prod_count")
     private Integer count;
+
+    @OneToMany(mappedBy = "products")
+    List<ProductCart> productCarts;
 }
